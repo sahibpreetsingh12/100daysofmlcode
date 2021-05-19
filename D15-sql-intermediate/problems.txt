@@ -1,0 +1,17 @@
+q1. Write a query to calculate the average daily price change in Apple stock, grouped by year.
+
+answer :- select year,avg(close-open) as open_close_price from tutorial.aapl_historical_stock_price group by year order by year
+
+Q2. Write a query that calculates the lowest and highest prices that Apple stock achieved each month.
+	
+answer :- select year,month, max(high) as MAXIMUM ,min(low) as MINIMUM  from tutorial.aapl_historical_stock_price group by year,month ORDER by year,month
+	
+
+Q3. Basic example of using HAVINg keyword
+answer:-  SELECT year,
+       month,
+       MAX(high) AS month_high
+  FROM tutorial.aapl_historical_stock_price
+ GROUP BY year, month
+HAVING MAX(high) > 400
+ ORDER BY year, month
